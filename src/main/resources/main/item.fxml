@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="280.0" prefWidth="240.0" stylesheets="@../css/simple.css"
+            xmlns="http://javafx.com/javafx/19" fx:controller="controller.ItemController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="280.0" prefWidth="240.0" styleClass="itemInfo"
+            stylesheets="@../css/simple.css">
+         <children>
+            <HBox prefHeight="60.0" prefWidth="240.0">
+               <children>
+                  <Label fx:id="itemName" prefHeight="51.0" prefWidth="144.0" text="Peach">
+                     <HBox.margin>
+                        <Insets left="5.0"/>
+                     </HBox.margin>
+                     <font>
+                        <Font name="Cambria" size="24.0"/>
+                     </font>
+                  </Label>
+                  <Label fx:id="itemPrice" prefHeight="51.0" prefWidth="84.0" text="￥1.99">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0"/>
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets/>
+               </VBox.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0"/>
+               </padding>
+            </HBox>
+            <ImageView fx:id="itemImg" fitHeight="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/pea.png"/>
+               </image>
+               <VBox.margin>
+                  <Insets/>
+               </VBox.margin>
+            </ImageView>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="40.0" prefWidth="240.0">
+               <children>
+                  <Label prefHeight="60.0" prefWidth="57.0" text="num">
+                     <font>
+                        <Font name="Calibri" size="24.0"/>
+                     </font>
+                  </Label>
+                  <Label fx:id="itemNumLabel" prefHeight="54.0" prefWidth="36.0" text="10">
+                     <font>
+                        <Font size="17.0"/>
+                     </font>
+                  </Label>
+                  <Label fx:id="itemUnit" prefHeight="51.0" prefWidth="35.0" text="kg">
+                     <font>
+                        <Font size="20.0"/>
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets/>
+               </VBox.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0"/>
+               </padding>
+               <opaqueInsets>
+                  <Insets top="10.0"/>
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
