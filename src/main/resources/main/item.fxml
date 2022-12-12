@@ -6,15 +6,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="280.0" prefWidth="240.0" stylesheets="@../css/simple.css"
-            xmlns="http://javafx.com/javafx/19" fx:controller="controller.ItemController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" maxHeight="280.0" maxWidth="240.0" minHeight="280.0"
+            minWidth="240.0" onMouseExited="#mouseExit" onMousePressed="#click" prefHeight="280.0" prefWidth="240.0"
+            stylesheets="@../css/simple.css" xmlns="http://javafx.com/javafx/19"
+            fx:controller="controller.ItemController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="280.0" prefWidth="240.0" styleClass="itemInfo"
-            stylesheets="@../css/simple.css">
+      <VBox fx:id="itemVbox" alignment="CENTER" maxHeight="280.0" maxWidth="240.0" minHeight="280.0" minWidth="240.0"
+            onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" prefHeight="280.0" prefWidth="240.0"
+            styleClass="itemInfo" stylesheets="@../css/simple.css">
          <children>
             <HBox prefHeight="60.0" prefWidth="240.0">
                <children>
-                  <Label fx:id="itemName" prefHeight="51.0" prefWidth="144.0" text="Peach">
+                  <Label fx:id="itemName" prefHeight="51.0" prefWidth="130.0" text="Peach">
                      <HBox.margin>
                         <Insets left="5.0"/>
                      </HBox.margin>
@@ -22,7 +25,7 @@
                         <Font name="Cambria" size="24.0"/>
                      </font>
                   </Label>
-                  <Label fx:id="itemPrice" prefHeight="51.0" prefWidth="84.0" text="￥1.99">
+                  <Label fx:id="itemPrice" prefHeight="51.0" prefWidth="100.0" text="￥1.99">
                      <font>
                         <Font name="Cambria Bold" size="18.0"/>
                      </font>
@@ -35,27 +38,31 @@
                   <Insets left="5.0" right="5.0"/>
                </padding>
             </HBox>
-            <ImageView fx:id="itemImg" fitHeight="180.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="itemImg" fitHeight="180.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true"
+                       VBox.vgrow="NEVER">
                <image>
                   <Image url="@../image/pea.png"/>
                </image>
                <VBox.margin>
                   <Insets/>
                </VBox.margin>
+               <viewport>
+                  <Rectangle2D/>
+               </viewport>
             </ImageView>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="40.0" prefWidth="240.0">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="40.0" prefWidth="240.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label prefHeight="60.0" prefWidth="57.0" text="num">
+                  <Label prefHeight="40.0" prefWidth="62.0" text="num">
                      <font>
-                        <Font name="Calibri" size="24.0"/>
+                        <Font name="Cambria" size="27.0"/>
                      </font>
                   </Label>
-                  <Label fx:id="itemNumLabel" prefHeight="54.0" prefWidth="36.0" text="10">
+                  <Label fx:id="itemNumLabel" prefHeight="40.0" prefWidth="36.0" text="10">
                      <font>
-                        <Font size="17.0"/>
+                        <Font name="System Bold" size="20.0"/>
                      </font>
                   </Label>
-                  <Label fx:id="itemUnit" prefHeight="51.0" prefWidth="35.0" text="kg">
+                  <Label fx:id="itemUnit" prefHeight="40.0" prefWidth="80.0" text="kg">
                      <font>
                         <Font size="20.0"/>
                      </font>

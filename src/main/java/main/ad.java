@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import model.SQL;
 import model.adPane;
 
 import java.sql.SQLException;
@@ -22,7 +21,7 @@ public class ad extends Application {
 //            FXMLLoader homePaneLoader = new FXMLLoader(getClass().getResource("adScrollDisplay.fxml"));
 //            AnchorPane paneSignIn = homePaneLoader.load();
         adPane adpane = new adPane(200, 810);
-        SQL sql = new SQL();
+       // SQL sql = new SQL();
         StackPane stackPane = adpane.getadPane();
 //        StackPane stackPane1=new StackPane(stackPane);
         Scene sceneSignIn = new Scene(stackPane, 811, 200);

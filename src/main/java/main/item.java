@@ -26,7 +26,8 @@ public class item extends Application {
             primaryStage.setResizable(false);
             primaryStage.setScene(sceneSignIn);
             primaryStage.setTitle("MMM-market");
-            primaryStage.getIcons().add(new Image("D:\\E\\COMMON\\junior\\java\\otherCode\\demo\\src\\main\\resources\\images\\iconNew.png"));
+            primaryStage.getIcons().add(new Image("file:/D:/E/COMMON/junior/java/MMM-market/src/main/resources/image/pea.png"));
+//            primaryStage.getIcons().add(new Image("D:\\E\\COMMON\\junior\\java\\otherCode\\demo\\src\\main\\resources\\images\\iconNew.png"));
             primaryStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

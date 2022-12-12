@@ -2,21 +2,22 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import org.controlsfx.control.Rating?>
 <?import org.controlsfx.control.SearchableComboBox?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" prefHeight="1065.0" prefWidth="1907.0"
-            styleClass="scroll-pane" stylesheets="@../css/simple.css" xmlns="http://javafx.com/javafx/19"
-            fx:controller="controller.HomeController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../css/simple.css" xmlns="http://javafx.com/javafx/19"
+            fx:controller="controller.AccountController">
    <children>
-      <VBox prefHeight="900.0" prefWidth="450.0" styleClass="statusPane" AnchorPane.bottomAnchor="0.0"
+      <VBox prefWidth="450.0" styleClass="statusPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
             AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" prefHeight="230.0" prefWidth="450.0">
                <children>
-                  <ImageView fitHeight="227.0" fitWidth="349.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="227.0" fitWidth="349.0" onMouseClicked="#iconClick" pickOnBounds="true"
+                             preserveRatio="true">
                      <image>
                         <Image url="@../image/icon1.png"/>
                      </image>
@@ -35,12 +36,12 @@
                <children>
                   <VBox prefHeight="116.0" prefWidth="350.0">
                      <children>
-                        <Label fx:id="chosenCardName" prefHeight="64.0" prefWidth="336.0" text="Peach">
+                        <Label fx:id="chosenCardName" prefHeight="64.0" prefWidth="336.0" text="MZP">
                            <font>
                               <Font name="Comic Sans MS Bold" size="45.0"/>
                            </font>
                         </Label>
-                        <Label fx:id="chosenCardPrice" prefHeight="49.0" prefWidth="333.0" text="￥2.99">
+                        <Label fx:id="chosenCardPrice" prefHeight="49.0" prefWidth="333.0" text="welcome">
                            <font>
                               <Font name="Comic Sans MS Bold" size="34.0"/>
                            </font>
@@ -56,27 +57,26 @@
                   <HBox alignment="CENTER" maxHeight="297.0" minHeight="280.0" prefHeight="297.0" prefWidth="390.0"
                         VBox.vgrow="ALWAYS">
                      <children>
-                        <ImageView fx:id="chosenCardImgView" fitHeight="274.0" fitWidth="327.0" pickOnBounds="true"
+                        <ImageView fx:id="chosenCardImgView" fitHeight="292.0" fitWidth="294.0" pickOnBounds="true"
                                    preserveRatio="true">
                            <image>
-                              <Image url="@../image/pea.png"/>
+                              <Image url="@../image/acccount.png"/>
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" minHeight="70.0" prefHeight="70.0" prefWidth="200.0" spacing="50.0">
                      <children>
-                        <Label prefHeight="67.0" prefWidth="188.0" text="NUM">
+                        <Label prefHeight="67.0" prefWidth="188.0" text="Balance">
                            <font>
-                              <Font name="Comic Sans MS Bold" size="36.0"/>
+                              <Font name="Comic Sans MS Bold" size="32.0"/>
                            </font>
                         </Label>
-                        <ComboBox fx:id="chosenCombox" prefHeight="56.0" prefWidth="162.0" promptText="1"
-                                  style="-fx-font-size: 20;" styleClass="itemInfoCard-combox">
-                           <cursor>
-                              <Cursor fx:constant="HAND"/>
-                           </cursor>
-                        </ComboBox>
+                        <Label fx:id="totalPriceLabel" prefHeight="70.0" prefWidth="199.0" text="￥0.00">
+                           <font>
+                              <Font name="Comic Sans MS" size="24.0"/>
+                           </font>
+                        </Label>
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0"/>
@@ -87,8 +87,8 @@
                   </HBox>
                   <HBox alignment="CENTER" minHeight="100.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="btAddToCart" mnemonicParsing="false" onMouseClicked="#btAddToCartClick"
-                                prefHeight="80.0" prefWidth="300.0" styleClass="itemInfoCard-button" text="ADD TO CART">
+                        <Button fx:id="btCheckOut" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0"
+                                styleClass="itemInfoCard-button" text="RECHARGE">
                            <font>
                               <Font size="30.0"/>
                            </font>
@@ -106,11 +106,10 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0"/>
          </padding>
       </VBox>
-      <VBox fx:id="vboxRight" layoutX="450.0" prefHeight="900.0" prefWidth="984.0" styleClass="scroll-pane"
-            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="0.0"
-            AnchorPane.topAnchor="0.0">
+      <VBox fx:id="vboxRight" layoutX="450.0" prefWidth="1456.0" styleClass="scroll-pane" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox fx:id="hboxTips" alignment="TOP_RIGHT" prefHeight="58.0" prefWidth="1453.0" VBox.vgrow="NEVER">
+            <HBox fx:id="hboxTips" prefHeight="58.0" prefWidth="1453.0" VBox.vgrow="NEVER">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="508.0">
                      <children>
@@ -128,7 +127,7 @@
                         </SearchableComboBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="341.0" HBox.hgrow="ALWAYS">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="980.0">
                      <children>
                         <Button fx:id="btAccount" mnemonicParsing="false" onMouseClicked="#btAccountClick"
                                 prefHeight="52.0" prefWidth="179.0" styleClass="InfoTopButton"
@@ -167,22 +166,45 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox fx:id="hboxContainScroll" prefHeight="831.0" prefWidth="984.0" styleClass="scroll-pane"
-                  VBox.vgrow="ALWAYS">
+            <VBox prefHeight="923.0" prefWidth="1454.0" styleClass="scroll-pane" VBox.vgrow="ALWAYS">
                <children>
-                  <ScrollPane fx:id="scroll" fitToHeight="true" fitToWidth="true" stylesheets="@../css/simple.css"
-                              HBox.hgrow="ALWAYS">
-                     <content>
-                        <TilePane fx:id="tilePane" hgap="40.0" prefHeight="200.0" prefWidth="200.0"
-                                  styleClass="scroll-pane" tileAlignment="TOP_LEFT" vgap="30.0">
-                           <padding>
-                              <Insets left="20.0" right="20.0" top="10.0"/>
-                           </padding>
-                        </TilePane>
-                     </content>
-                  </ScrollPane>
+                  <VBox alignment="CENTER" prefHeight="527.0" prefWidth="1454.0">
+                     <children>
+                        <Rating prefHeight="24.0" prefWidth="176.0"/>
+                        <Label prefHeight="108.0" prefWidth="548.0" text="来给我的作品打个分吧！">
+                           <font>
+                              <Font size="48.0"/>
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="100.0"/>
+                     </VBox.margin>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="210.0" prefWidth="1454.0">
+                     <children>
+                        <ImageView fitHeight="220.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/banner.jpg"/>
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="220.0" fitWidth="414.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/banner2.jpg"/>
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="220.0" fitWidth="396.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/1122.jpg"/>
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0"/>
+                     </VBox.margin>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </children>

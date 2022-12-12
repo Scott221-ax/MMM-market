@@ -12,16 +12,6 @@ import java.io.IOException;
 
 public class home extends Application {
     public static final String CURRENCY = "￥";
-//    public static SQL mySQL;//连接数据库进行增删改查操作
-//
-//    {
-//        try {
-//            mySQL = new SQL();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
 
     public static void main(String[] args) {
         launch(args);
@@ -33,12 +23,9 @@ public class home extends Application {
             Group root = new Group();
             //设置登录scene
             FXMLLoader homePaneLoader = new FXMLLoader(getClass().getResource("home.fxml"));
-            AnchorPane paneSignIn = homePaneLoader.load();
-
-            Scene sceneSignIn = new Scene(paneSignIn, 1440, 900);
-
-            //primaryStage.setResizable(false);
-            primaryStage.setScene(sceneSignIn);
+            AnchorPane pane = homePaneLoader.load();
+            Scene scene = new Scene(pane, 1800, 1000);
+            primaryStage.setScene(scene);
             primaryStage.setTitle("MMM-market");
             primaryStage.getIcons().add(new Image("D:\\E\\COMMON\\junior\\java\\otherCode\\demo\\src\\main\\resources\\images\\iconNew.png"));
             primaryStage.show();
